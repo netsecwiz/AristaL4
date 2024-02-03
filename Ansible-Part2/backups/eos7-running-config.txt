@@ -1,0 +1,69 @@
+! Command: show running-config
+! device: eos7 (cEOSLab, EOS-4.31.1F-34554157.4311F (engineering build))
+!
+no aaa root
+!
+username admin privilege 15 role network-admin secret 5 $1$5O85YVVn$HrXcfOivJEnISTMb6xrJc.
+username arista privilege 15 role network-admin secret 5 $1$4VjIjfd1$XkUVulbNDESHFzcxDU.Tk1
+username arista ssh-key ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCegZuVlxxKc4FZYdL1GBIo5CXgEypvxdM84IojDyEI3BwQGMcAEsPgkZH/htq9nByqBWJT3kI+oyagDNw16Ha7xxS2XGDyPwWYwPXOQTFpakj/NzZcG2IDBzsgbmNiD+qiU+o50+iyLfUalmStxOn0STQECHwO68xVqNBfX0nw1X9lXO/Vo24DO2yvMvLuWeGbece0CeA1UFBT7cIHxA4MFjMI8cdYR3QuqqZYjxvc7SWZH1Mes47b6TbV7QsxI7AhmCQvagTFgR3IDM6LuWWVL9oQEDm6vkXOHykiapwQBrgGO8+NZvkybkw2rk5OMBG66hHNgsriXPhRCZ2bgou9 arista@tristan-circa-1-8398de16-eos
+!
+daemon TerminAttr
+   exec /usr/bin/TerminAttr -cvcompression=gzip -smashexcludes=ale,flexCounter,hardware,kni,pulse,strata -ingestexclude=/Sysdb/cell/1/agent,/Sysdb/cell/2/agent -cvaddr=192.168.0.5:9910 -cvauth=token,/tmp/token -cvvrf=default -taillogs -disableaaa
+   no shutdown
+!
+transceiver qsfp default-mode 4x10G
+!
+service routing protocols model multi-agent
+!
+hostname eos7
+dns domain atd.lab
+!
+spanning-tree mode mstp
+!
+system l1
+   unsupported speed action error
+   unsupported error-correction action error
+!
+management api http-commands
+   no shutdown
+!
+radius-server host 192.168.0.1 key 7 0207165218120E
+!
+aaa group server radius atds
+   server 192.168.0.1
+!
+aaa authentication login default group atds local
+aaa authorization exec default group atds local
+aaa authorization commands all default local
+!
+interface Ethernet1
+   description EOS3
+   no switchport
+   ip address 10.3.7.7/24
+!
+interface Ethernet2
+   description EOS10
+!
+interface Ethernet3
+   description EOS1
+   no switchport
+   ip address 10.1.7.7/24
+!
+interface Ethernet4
+   description EOS19
+   no switchport
+   ip address 10.7.19.7/24
+!
+interface Loopback0
+   ip address 7.7.7.7/32
+!
+interface Management0
+   ip address 192.168.0.16/24
+!
+ip routing
+!
+ntp server 192.168.0.1 iburst source Management0
+!
+ip radius source-interface Management0
+!
+end
