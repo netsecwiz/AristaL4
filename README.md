@@ -1,9 +1,8 @@
 This is not the L4 class. This is an ATD instance for advanced routing I am using to supplement some of the L4 knowledge.<br>
 **This is my 1st attempt at a decent looking readme. *<br>
 
-In the backup playbook i just change the name of the file path as I go per lab. Prior to the work.<nr>
-**Here is the topology.
-**
+In the backup playbook i just change the name of the file path as I go per lab. Prior to the work.<br><br>
+**Here is the topology.**<br>
 ![image](https://github.com/netsecwiz/AristaL4/assets/123339313/c9b2258b-46e2-4e76-971d-21940e722e47)
 
 _**I am only doing the MESH lab guiides.**_<br>
