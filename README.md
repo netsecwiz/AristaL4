@@ -15,7 +15,7 @@ Speicifically:<br>
 ![image](https://github.com/netsecwiz/AristaL4/assets/123339313/908a4342-1fec-40c2-9793-37924a5976a1)<br>
 
 
-From my understainding the difference of SR and VPN between LDP and IP-VPN are:<br>
+From my understanding the difference of SR and VPN between LDP and IP-VPN are:<br>
 
 **The difference between Segment Routing (SR) and Label Distribution Protocol (LDP) in the context of providing VPN services like IP-VPN involves the underlying technology used for label distribution and path determination within an MPLS network.
 In summary, SR offers a more modern and scalable approach that integrates well with traffic engineering and simplifies the management of paths through the network. In contrast, LDP is an older protocol that works well for distributing labels but may require additional complexity for traffic engineering and can be less scalable in large networks.**<br>
