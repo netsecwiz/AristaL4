@@ -13,7 +13,10 @@ Speicifically:<br>
 
 From my understainding the difference of SR and VPN between LDP and IP-VPN are:<br>
 
-The difference between Segment Routing (SR) and Label Distribution Protocol (LDP) in the context of providing VPN services like IP-VPN involves the underlying technology used for label distribution and path determination within an MPLS network.
+**The difference between Segment Routing (SR) and Label Distribution Protocol (LDP) in the context of providing VPN services like IP-VPN involves the underlying technology used for label distribution and path determination within an MPLS network.
+In summary, SR offers a more modern and scalable approach that integrates well with traffic engineering and simplifies the management of paths through the network. In contrast, LDP is an older protocol that works well for distributing labels but may require additional complexity for traffic engineering and can be less scalable in large networks.**<br>
+
+For more deatils look below:<br>
 
 Segment Routing (SR):
 
@@ -34,7 +37,6 @@ SR for VPNs: VPNs can leverage SR for more efficient routing and path selection.
 
 IP-VPN with LDP: In traditional IP-VPNs, LDP is used alongside protocols like MP-BGP to distribute VPN labels for MPLS VPN services. Each router must learn the labels for the VPN routes, which can require more overhead and complex configurations as the network scales.
 
-In summary, SR offers a more modern and scalable approach that integrates well with traffic engineering and simplifies the management of paths through the network. In contrast, LDP is an older protocol that works well for distributing labels but may require additional complexity for traffic engineering and can be less scalable in large networks.
 
 My expelantions on the topics of the demo:
 Deploy IS-IS as the Service Provider Underlay IGP:
@@ -49,6 +51,7 @@ Prepare to Offer VPN Services to Customers via MP-BGP EVPN Control-Plane:
 MP-BGP (Multi-Protocol Border Gateway Protocol): An extension of BGP that supports multiple address families (like unicast, multicast, VPN) and is used to exchange routing information in large and interconnected networks.
 EVPN (Ethernet VPN): A BGP-based control plane for Ethernet traffic that allows for scalable Layer 2 VPN services.
 
+************************************LABS*****************************************
 
 Deploy L3VPN Service for Customer-1:
 L3VPN (Layer 3 Virtual Private Network): This service uses BGP to distribute VPN routing information across the provider's backbone, allowing for separation between different customers' networks on the same physical infrastructure.
