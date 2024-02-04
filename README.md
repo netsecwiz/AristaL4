@@ -17,55 +17,55 @@ In summary, SR offers a more modern and scalable approach that integrates well w
 For more deatils look at appendix:<br>
 
 ************************************LABS*****************************************<br>
-My explenations on the topics of the demo:
-![image](https://github.com/netsecwiz/AristaL4/assets/123339313/9ae11423-2c16-4209-9a65-34cc6887bb5e)
+My explenations on the topics of the demo:<br>
+![image](https://github.com/netsecwiz/AristaL4/assets/123339313/9ae11423-2c16-4209-9a65-34cc6887bb5e)<br>
 
 Deploy IS-IS as the Service Provider Underlay IGP:<br>
-**IS-IS (Intermediate System to Intermediate System)**: This is a routing protocol used to determine the best path for data through a network of routers. In the context of a service provider, IS-IS is often used as the underlay network, meaning it's the foundational routing protocol that runs beneath other services, providing basic connectivity and route information.
-Establish MPLS Transport Label Distribution via Segment-Routing:
+**IS-IS (Intermediate System to Intermediate System)**: This is a routing protocol used to determine the best path for data through a network of routers. In the context of a service provider, IS-IS is often used as the underlay network, meaning it's the foundational routing protocol that runs beneath other services, providing basic connectivity and route information.<br>
 
+Establish MPLS Transport Label Distribution via Segment-Routing:<br>
 **MPLS (Multi-Protocol Label Switching)**:<br>
  A method for speeding up and shaping traffic flows across enterprise and service provider networks.
 Segment Routing (SR): An MPLS-based forwarding paradigm that simplifies routing, reduces state held on routers, and offers enhanced traffic engineering capabilities by encoding paths as sequences of "segments", which are pre-defined paths or instructions.
-Prepare to Offer VPN Services to Customers via MP-BGP EVPN Control-Plane:
+Prepare to Offer VPN Services to Customers via MP-BGP EVPN Control-Plane:<br>
 
-![image](https://github.com/netsecwiz/AristaL4/assets/123339313/2991bed2-cf62-45fa-af9b-2d709dc9646b)
+![image](https://github.com/netsecwiz/AristaL4/assets/123339313/2991bed2-cf62-45fa-af9b-2d709dc9646b)<br>
 
 **MP-BGP (Multi-Protocol Border Gateway Protocol)**: <br>
 An extension of BGP that supports multiple address families (like unicast, multicast, VPN) and is used to exchange routing information in large and interconnected networks.
-EVPN (Ethernet VPN): A BGP-based control plane for Ethernet traffic that allows for scalable Layer 2 VPN services.
+EVPN (Ethernet VPN): A BGP-based control plane for Ethernet traffic that allows for scalable Layer 2 VPN services.<br>
 
-![image](https://github.com/netsecwiz/AristaL4/assets/123339313/6a6f2123-9b2a-4675-a564-55a66626a7fb)
+![image](https://github.com/netsecwiz/AristaL4/assets/123339313/6a6f2123-9b2a-4675-a564-55a66626a7fb)<br>
 
 Deploy L3VPN Service for Customer-1:<br>
-**L3VPN (Layer 3 Virtual Private Network)**: This service uses BGP to distribute VPN routing information across the provider's backbone, allowing for separation between different customers' networks on the same physical infrastructure.
+**L3VPN (Layer 3 Virtual Private Network)**: This service uses BGP to distribute VPN routing information across the provider's backbone, allowing for separation between different customers' networks on the same physical infrastructure.<br>
 
-![image](https://github.com/netsecwiz/AristaL4/assets/123339313/92af0f3b-6510-46f8-9b3d-5d770f962625)
+![image](https://github.com/netsecwiz/AristaL4/assets/123339313/92af0f3b-6510-46f8-9b3d-5d770f962625)<br>
 
 Deploy L2VPN Service for Customer-2:<br>
-**L2VPN (Layer 2 Virtual Private Network)**: This provides a point-to-point or point-to-multipoint service over the service provider's network, extending a customer's LAN and its Layer 2 traffic between geographically separate sites.
+**L2VPN (Layer 2 Virtual Private Network)**: This provides a point-to-point or point-to-multipoint service over the service provider's network, extending a customer's LAN and its Layer 2 traffic between geographically separate sites.<br>
 
-![image](https://github.com/netsecwiz/AristaL4/assets/123339313/c2a6bcf9-1768-4132-bc18-3463648b3282)
+![image](https://github.com/netsecwiz/AristaL4/assets/123339313/c2a6bcf9-1768-4132-bc18-3463648b3282)<br>
 
 Deploy E-LINE Service for Customer-3:<br>
-**E-LINE**: A type of Ethernet VPN that provides a point-to-point Ethernet virtual connection between two customer sites, often used for dedicated capacity and privacy.
+**E-LINE**: A type of Ethernet VPN that provides a point-to-point Ethernet virtual connection between two customer sites, often used for dedicated capacity and privacy.<br>
 
-![image](https://github.com/netsecwiz/AristaL4/assets/123339313/98fb36fa-d21c-4179-9099-0d315844435d)
+![image](https://github.com/netsecwiz/AristaL4/assets/123339313/98fb36fa-d21c-4179-9099-0d315844435d)<br>
 
 Enable TI-LFA Fast Reroute for ISIS-SR:<br>
 **TI-LFA (Topology Independent Loop-Free Alternate):** A fast reroute mechanism that provides protection against link or node failures in the network by pre-computing backup paths.
-**ISIS-SR (IS-IS with Segment Routing)**: This combines traditional IS-IS routing with the traffic engineering capabilities of Segment Routing.
+**ISIS-SR (IS-IS with Segment Routing)**: This combines traditional IS-IS routing with the traffic engineering capabilities of Segment Routing.<br>
 
-![image](https://github.com/netsecwiz/AristaL4/assets/123339313/47febc36-bc4d-4c87-953c-7f28fc7dc185)
+![image](https://github.com/netsecwiz/AristaL4/assets/123339313/47febc36-bc4d-4c87-953c-7f28fc7dc185)<br>
 
 Leverage SR-TE to Steer VPN Traffic:<br>
-**SR-TE (Segment Routing Traffic Engineering)**: Allows network operators to define paths through the network that can optimize and steer traffic based on specific requirements or constraints, used particularly for efficient and optimized VPN traffic handling.
+**SR-TE (Segment Routing Traffic Engineering)**: Allows network operators to define paths through the network that can optimize and steer traffic based on specific requirements or constraints, used particularly for efficient and optimized VPN traffic handling.<br>
 
-![image](https://github.com/netsecwiz/AristaL4/assets/123339313/bbac312a-cb92-42b0-8c20-3a25f8b8e3b7)
+![image](https://github.com/netsecwiz/AristaL4/assets/123339313/bbac312a-cb92-42b0-8c20-3a25f8b8e3b7)<br>
 Deploy L3VPN Service for Customer-4<br>
 Repeat of customer 1, but seperated.<br>
 
-![image](https://github.com/netsecwiz/AristaL4/assets/123339313/8b76d161-a863-481c-97cc-585bf9655a76)
+![image](https://github.com/netsecwiz/AristaL4/assets/123339313/8b76d161-a863-481c-97cc-585bf9655a76)<br>
 
 Offer Centralized Services to L3VPN Customers:<br>
 **Centralized services** could include centralized internet access, cloud services, or other shared resources that L3VPN customers can utilize without the need to deploy them individually for each customer, often leading to cost savings and easier management.
