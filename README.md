@@ -1,3 +1,6 @@
+This is not the L4 class. This is an ATD instance for advanced routing I am using to supplement some of the L4 knowledge.<br>
+**This is my 1st attempt at a decent looking readme. *<br>
+
 In the backup playbook i just change the name of the file path as I go per lab. 
 Here is the topology.
 
@@ -7,7 +10,10 @@ _**I am only doing the MESH lab guiides.**_<br>
 
 Speicifically:<br>
 **Routing ATD - Mesh Topology - Full ISIS-SR and EVPN Lab Guide**<br>
+![image](https://github.com/netsecwiz/AristaL4/assets/123339313/8479682c-cdcd-4cae-a169-37b8a887b34d)<br>
 **Routing ATD - Mesh Topology - Full LDP and IP-VPN Lab Guide**<br>
+![image](https://github.com/netsecwiz/AristaL4/assets/123339313/908a4342-1fec-40c2-9793-37924a5976a1)<br>
+
 
 From my understainding the difference of SR and VPN between LDP and IP-VPN are:<br>
 
