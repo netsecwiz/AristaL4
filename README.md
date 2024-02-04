@@ -3,8 +3,6 @@ Here is the topology.
 
 ![image](https://github.com/netsecwiz/AristaL4/assets/123339313/c9b2258b-46e2-4e76-971d-21940e722e47)
 
-![image](https://github.com/netsecwiz/AristaL4/assets/123339313/5ed2c128-2247-44a1-ac61-2f6f078328cd)
-
 _**I am only doing the MESH lab guiides.**_<br>
 
 Speicifically:<br>
@@ -18,8 +16,9 @@ In summary, SR offers a more modern and scalable approach that integrates well w
 
 For more deatils look at appendix:<br>
 
-************************************LABS*****************************************
+************************************LABS*****************************************<br>
 My explenations on the topics of the demo:
+![image](https://github.com/netsecwiz/AristaL4/assets/123339313/9ae11423-2c16-4209-9a65-34cc6887bb5e)
 
 Deploy IS-IS as the Service Provider Underlay IGP:<br>
 **IS-IS (Intermediate System to Intermediate System)**: This is a routing protocol used to determine the best path for data through a network of routers. In the context of a service provider, IS-IS is often used as the underlay network, meaning it's the foundational routing protocol that runs beneath other services, providing basic connectivity and route information.
@@ -30,9 +29,13 @@ Establish MPLS Transport Label Distribution via Segment-Routing:
 Segment Routing (SR): An MPLS-based forwarding paradigm that simplifies routing, reduces state held on routers, and offers enhanced traffic engineering capabilities by encoding paths as sequences of "segments", which are pre-defined paths or instructions.
 Prepare to Offer VPN Services to Customers via MP-BGP EVPN Control-Plane:
 
+![image](https://github.com/netsecwiz/AristaL4/assets/123339313/2991bed2-cf62-45fa-af9b-2d709dc9646b)
+
 **MP-BGP (Multi-Protocol Border Gateway Protocol)**: <br>
 An extension of BGP that supports multiple address families (like unicast, multicast, VPN) and is used to exchange routing information in large and interconnected networks.
 EVPN (Ethernet VPN): A BGP-based control plane for Ethernet traffic that allows for scalable Layer 2 VPN services.
+
+![image](https://github.com/netsecwiz/AristaL4/assets/123339313/6a6f2123-9b2a-4675-a564-55a66626a7fb)
 
 Deploy L3VPN Service for Customer-1:<br>
 **L3VPN (Layer 3 Virtual Private Network)**: This service uses BGP to distribute VPN routing information across the provider's backbone, allowing for separation between different customers' networks on the same physical infrastructure.
@@ -55,7 +58,7 @@ Offer Centralized Services to L3VPN Customers:<br>
 **Centralized services** could include centralized internet access, cloud services, or other shared resources that L3VPN customers can utilize without the need to deploy them individually for each customer, often leading to cost savings and easier management.
 
 
-***********APPENDIX**********
+***********APPENDIX**********<br>
 **Segment Routing (SR)**:<br>
 Path Control: SR allows for more granular path control. The path a packet will take through the network is encoded in the packet header as a list of segments by the source router. This is often referred to as source routing.
 Simplification: It simplifies the network by reducing the amount of state information required on each router because the path is determined at the edge of the network.
