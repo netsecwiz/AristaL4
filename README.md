@@ -40,19 +40,32 @@ EVPN (Ethernet VPN): A BGP-based control plane for Ethernet traffic that allows 
 Deploy L3VPN Service for Customer-1:<br>
 **L3VPN (Layer 3 Virtual Private Network)**: This service uses BGP to distribute VPN routing information across the provider's backbone, allowing for separation between different customers' networks on the same physical infrastructure.
 
+![image](https://github.com/netsecwiz/AristaL4/assets/123339313/92af0f3b-6510-46f8-9b3d-5d770f962625)
+
 Deploy L2VPN Service for Customer-2:<br>
 **L2VPN (Layer 2 Virtual Private Network)**: This provides a point-to-point or point-to-multipoint service over the service provider's network, extending a customer's LAN and its Layer 2 traffic between geographically separate sites.
 
+![image](https://github.com/netsecwiz/AristaL4/assets/123339313/c2a6bcf9-1768-4132-bc18-3463648b3282)
+
 Deploy E-LINE Service for Customer-3:<br>
 **E-LINE**: A type of Ethernet VPN that provides a point-to-point Ethernet virtual connection between two customer sites, often used for dedicated capacity and privacy.
+
+![image](https://github.com/netsecwiz/AristaL4/assets/123339313/98fb36fa-d21c-4179-9099-0d315844435d)
 
 Enable TI-LFA Fast Reroute for ISIS-SR:<br>
 **TI-LFA (Topology Independent Loop-Free Alternate):** A fast reroute mechanism that provides protection against link or node failures in the network by pre-computing backup paths.
 **ISIS-SR (IS-IS with Segment Routing)**: This combines traditional IS-IS routing with the traffic engineering capabilities of Segment Routing.
 
+![image](https://github.com/netsecwiz/AristaL4/assets/123339313/47febc36-bc4d-4c87-953c-7f28fc7dc185)
+
 Leverage SR-TE to Steer VPN Traffic:<br>
 **SR-TE (Segment Routing Traffic Engineering)**: Allows network operators to define paths through the network that can optimize and steer traffic based on specific requirements or constraints, used particularly for efficient and optimized VPN traffic handling.
 
+![image](https://github.com/netsecwiz/AristaL4/assets/123339313/bbac312a-cb92-42b0-8c20-3a25f8b8e3b7)
+Deploy L3VPN Service for Customer-4<br>
+Repeat of customer 1, but seperated.<br>
+
+![image](https://github.com/netsecwiz/AristaL4/assets/123339313/8b76d161-a863-481c-97cc-585bf9655a76)
 
 Offer Centralized Services to L3VPN Customers:<br>
 **Centralized services** could include centralized internet access, cloud services, or other shared resources that L3VPN customers can utilize without the need to deploy them individually for each customer, often leading to cost savings and easier management.
