@@ -53,7 +53,7 @@ Deploy L2VPN Service for Customer-2:<br>
 ![image](https://github.com/netsecwiz/AristaL4/assets/123339313/c2a6bcf9-1768-4132-bc18-3463648b3282)<br>
 
 Deploy E-LINE Service for Customer-3:<br>
-**E-LINE**: A type of Ethernet VPN that provides a point-to-point Ethernet virtual connection between two customer sites, often used for dedicated capacity and privacy.<br>
+**E-LINE**: A type of Ethernet VPN that provides a point-to-point Ethernet virtual connection between two customer sites, often used for dedicated capacity and privacy. It's sort of L1VPN. Layer 1 is exended.<br>
 
 ![image](https://github.com/netsecwiz/AristaL4/assets/123339313/98fb36fa-d21c-4179-9099-0d315844435d)<br>
 
