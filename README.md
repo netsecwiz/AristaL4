@@ -5,13 +5,13 @@ Here is the topology.
 
 ![image](https://github.com/netsecwiz/AristaL4/assets/123339313/5ed2c128-2247-44a1-ac61-2f6f078328cd)
 
-**I am only doing the MESH lab guiides. **
+_**I am only doing the MESH lab guiides.**_<br>
 
-Speicifically:
-**Routing ATD - Mesh Topology - Full ISIS-SR and EVPN Lab Guide**
-**Routing ATD - Mesh Topology - Full LDP and IP-VPN Lab Guide**
+Speicifically:<br>
+**Routing ATD - Mesh Topology - Full ISIS-SR and EVPN Lab Guide**<br>
+**Routing ATD - Mesh Topology - Full LDP and IP-VPN Lab Guide**<br>
 
-From my understainding the difference of SR and VPN between LDP and IP-VPN are:
+From my understainding the difference of SR and VPN between LDP and IP-VPN are:<br>
 
 The difference between Segment Routing (SR) and Label Distribution Protocol (LDP) in the context of providing VPN services like IP-VPN involves the underlying technology used for label distribution and path determination within an MPLS network.
 
