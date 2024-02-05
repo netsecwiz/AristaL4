@@ -74,7 +74,10 @@ Repeat of customer 1, but seperated.<br>
 
 Offer Centralized Services to L3VPN Customers:<br>
 **Centralized services** could include centralized internet access, cloud services, or other shared resources that L3VPN customers can utilize without the need to deploy them individually for each customer, often leading to cost savings and easier management.
-
+<br>
+**Routing ATD - Mesh Topology - Full LDP and IP-VPN Lab Guide**<br>
+Moving onto this. I am burned out, I'm just going to show the final configurations it the backups.<br>
+I've always just been curious to try IS-IS and MPLS so this was my oppurtunity to do so. I mixed in some ansible and GitHub for fun
 
 ***********APPENDIX**********<br>
 **Segment Routing (SR)**:<br>
