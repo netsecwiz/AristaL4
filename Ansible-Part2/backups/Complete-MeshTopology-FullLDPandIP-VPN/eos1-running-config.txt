@@ -1,0 +1,209 @@
+! Command: show running-config
+! device: eos1 (cEOSLab, EOS-4.31.1F-34554157.4311F (engineering build))
+!
+no aaa root
+!
+username admin privilege 15 role network-admin secret 5 $1$5O85YVVn$HrXcfOivJEnISTMb6xrJc.
+username arista privilege 15 role network-admin secret 5 $1$4VjIjfd1$XkUVulbNDESHFzcxDU.Tk1
+username arista ssh-key ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCegZuVlxxKc4FZYdL1GBIo5CXgEypvxdM84IojDyEI3BwQGMcAEsPgkZH/htq9nByqBWJT3kI+oyagDNw16Ha7xxS2XGDyPwWYwPXOQTFpakj/NzZcG2IDBzsgbmNiD+qiU+o50+iyLfUalmStxOn0STQECHwO68xVqNBfX0nw1X9lXO/Vo24DO2yvMvLuWeGbece0CeA1UFBT7cIHxA4MFjMI8cdYR3QuqqZYjxvc7SWZH1Mes47b6TbV7QsxI7AhmCQvagTFgR3IDM6LuWWVL9oQEDm6vkXOHykiapwQBrgGO8+NZvkybkw2rk5OMBG66hHNgsriXPhRCZ2bgou9 arista@tristan-circa-1-8398de16-eos
+!
+daemon TerminAttr
+   exec /usr/bin/TerminAttr -cvcompression=gzip -smashexcludes=ale,flexCounter,hardware,kni,pulse,strata -ingestexclude=/Sysdb/cell/1/agent,/Sysdb/cell/2/agent -cvaddr=192.168.0.5:9910 -cvauth=token,/tmp/token -cvvrf=default -taillogs -disableaaa
+   no shutdown
+!
+transceiver qsfp default-mode 4x10G
+!
+service routing protocols model multi-agent
+!
+hostname eos1
+dns domain atd.lab
+!
+spanning-tree mode mstp
+!
+system l1
+   unsupported speed action error
+   unsupported error-correction action error
+!
+vrf instance CUSTOMER-1
+!
+management api http-commands
+   no shutdown
+!
+radius-server host 192.168.0.1 key 7 0207165218120E
+!
+aaa group server radius atds
+   server 192.168.0.1
+!
+aaa authentication login default group atds local
+aaa authorization exec default group atds local
+aaa authorization commands all default local
+!
+interface Ethernet1
+   description EOS2
+   no switchport
+   ip address 10.1.2.1/24
+   ipv6 address fd00:1:2::1/64
+   mpls ldp interface
+   isis enable 100
+   isis circuit-type level-2
+   isis network point-to-point
+!
+interface Ethernet2
+   description EOS7
+   no switchport
+   ip address 10.1.7.1/24
+   ipv6 address fd00:1:7::1/64
+   mpls ldp interface
+   isis enable 100
+   isis circuit-type level-2
+   isis network point-to-point
+!
+interface Ethernet3
+   description EOS11
+   no switchport
+   vrf CUSTOMER-1
+   ip address 10.1.11.1/24
+   ipv6 address fd00:1:11::1/64
+!
+interface Ethernet4
+   description EOS6
+   no switchport
+   ip address 10.1.6.1/24
+   ipv6 address fd00:1:6::1/64
+   mpls ldp interface
+   isis enable 100
+   isis circuit-type level-2
+   isis network point-to-point
+!
+interface Ethernet5
+   description EOS5
+   no switchport
+   ip address 10.1.5.1/24
+   ipv6 address fd00:1:5::1/64
+   mpls ldp interface
+   isis enable 100
+   isis circuit-type level-2
+   isis network point-to-point
+!
+interface Ethernet6
+   description EOS17
+   no switchport
+   no lldp transmit
+   no lldp receive
+!
+interface Loopback0
+   ip address 1.1.1.1/32
+   ipv6 address 1:1:1::1/128
+   mpls ldp interface
+   isis enable 100
+   isis passive
+!
+interface Management0
+   ip address 192.168.0.10/24
+!
+ip routing
+ip routing vrf CUSTOMER-1
+!
+ip prefix-list SVC-ACCESS seq 10 permit 11.11.11.11/32
+!
+ipv6 prefix-list SVC-ACCESS
+   seq 10 permit 11:11:11::11/128
+!
+ipv6 unicast-routing
+ipv6 unicast-routing vrf CUSTOMER-1
+!
+mpls ip
+!
+mpls ldp
+   router-id interface Loopback0
+   transport-address interface Loopback0
+   neighbor hello-redundancy
+   interface disabled default
+   no shutdown
+   !
+   graceful-restart role speaker
+      timer state-holding 500
+      timer reconnect 500
+   !
+   pseudowires
+      mtu 9000
+      !
+      pseudowire EOS16-EOS17
+         neighbor 4.4.4.4
+         pseudowire-id 1617
+!
+ntp server 192.168.0.1 iburst source Management0
+!
+patch panel
+   patch C3-E-LINE
+      connector 1 interface Ethernet6
+      connector 2 pseudowire ldp EOS16-EOS17
+!
+ip radius source-interface Management0
+!
+route-map EXPORT-TO-SVC permit 10
+   match ip address prefix-list SVC-ACCESS
+   set extcommunity rt 500:500 additive
+!
+route-map EXPORT-TO-SVC permit 20
+   match ipv6 address prefix-list SVC-ACCESS
+   set extcommunity rt 500:500 additive
+!
+route-map EXPORT-TO-SVC permit 30
+!
+router bgp 100
+   router-id 1.1.1.1
+   no bgp default ipv4-unicast
+   maximum-paths 2
+   neighbor 5.5.5.5 remote-as 100
+   neighbor 5.5.5.5 update-source Loopback0
+   neighbor 5.5.5.5 send-community
+   neighbor 5.5.5.5 maximum-routes 12000
+   !
+   address-family vpn-ipv4
+      neighbor 5.5.5.5 activate
+      neighbor default encapsulation mpls next-hop-self source-interface Loopback0
+   !
+   address-family vpn-ipv6
+      neighbor 5.5.5.5 activate
+      neighbor default encapsulation mpls next-hop-self source-interface Loopback0
+   !
+   vrf CUSTOMER-1
+      rd 1.1.1.1:1
+      route-target import vpn-ipv4 1:1
+      route-target import vpn-ipv4 5:5
+      route-target import vpn-ipv6 1:1
+      route-target import vpn-ipv6 5:5
+      route-target export vpn-ipv4 1:1
+      route-target export vpn-ipv6 1:1
+      route-target export vpn-ipv4 route-map EXPORT-TO-SVC
+      route-target export vpn-ipv6 route-map EXPORT-TO-SVC
+      neighbor 10.1.11.11 remote-as 123
+      neighbor 10.1.11.11 maximum-routes 12000
+      neighbor fd00:1:11::11 remote-as 123
+      neighbor fd00:1:11::11 maximum-routes 12000
+      !
+      address-family ipv4
+         neighbor 10.1.11.11 activate
+      !
+      address-family ipv6
+         neighbor fd00:1:11::11 activate
+!
+router isis 100
+   net 49.1111.0000.0001.00
+   is-type level-2
+   log-adjacency-changes
+   mpls ldp sync default
+   advertise passive-only
+   spf-interval 5 1000 2000
+   timers lsp generation 5 1000 2000
+   lsp flooding dynamic level-2
+   !
+   address-family ipv4 unicast
+      bfd all-interfaces
+   !
+   address-family ipv6 unicast
+      bfd all-interfaces
+      multi-topology
+!
+end
